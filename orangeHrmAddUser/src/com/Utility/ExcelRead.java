@@ -12,7 +12,7 @@ public class ExcelRead
 	public String exceldata(int sheetnum, int rownum, int columnnum) throws Exception 
 	{
 
-		File src = new File("C:\\Users\\HP\\eclipse\\practice programs\\orangeHrmAddUser\\testdata\\testdata 1.xlsx");
+		File src = new File("C:\\Users\\HP\\git\\orangehrm\\orangeHrmAddUser\\testdata\\testdata1.xlsx");
 		FileInputStream fin = new FileInputStream(src);
 		XSSFWorkbook wb = new XSSFWorkbook(fin);
 		XSSFSheet sheet = wb.getSheetAt(sheetnum);

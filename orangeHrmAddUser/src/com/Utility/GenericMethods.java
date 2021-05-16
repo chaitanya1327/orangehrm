@@ -28,7 +28,7 @@ public class GenericMethods {
 			System.setProperty("webdriver.chrome.driver", pro.getProperty("chromepath"));
 			driver = new ChromeDriver();
 		}
-		if (browsername.equals("")) 
+		else if (browsername.equals("ie")) 
 		{
 			System.setProperty("webdriver.ie.driver", pro.getProperty("iepath"));
 			driver = new InternetExplorerDriver();
@@ -50,10 +50,12 @@ public class GenericMethods {
 		if (locatortype.equals("name")) 
 		{
 			driver.findElement(By.name(locatorvalue)).sendKeys(data);
-		} else if (locatortype.equals("xpath")) 
+		} 
+		else if (locatortype.equals("xpath")) 
 		{
 			driver.findElement(By.xpath(locatorvalue)).sendKeys(data);
-		} else if (locatortype.equals("id"))
+		} 
+		else if (locatortype.equals("id"))
 		{
 			driver.findElement(By.id(locatorvalue)).sendKeys(data);
 		}
@@ -65,13 +67,19 @@ public class GenericMethods {
 		if (locatortype.equals("name"))
 		{
 			driver.findElement(By.name(locatorvalue)).click();
-		} else if (locatortype.equals("xpath")) 
+		} 
+		else if (locatortype.equals("xpath")) 
 		{
 			driver.findElement(By.xpath(locatorvalue)).click();
-		} else if (locatortype.equals("id")) 
+		} 
+		else if (locatortype.equals("id")) 
 		{
 			driver.findElement(By.id(locatorvalue)).click();
 		}
+	}
+	public void teardown()
+	{
+		driver.quit();
 	}
 	
 
