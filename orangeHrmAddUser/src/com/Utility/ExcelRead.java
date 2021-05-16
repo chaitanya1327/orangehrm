@@ -9,20 +9,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelRead 
 {
-	XSSFWorkbook wb;
-	XSSFSheet sheet;
-	public ExcelRead() throws IOException
+	public String exceldata(int sheetnum, int rownum, int columnnum) throws Exception 
 	{
-		File src=new File("C:\\Users\\HP\\eclipse\\practice programs\\orangeHrmAddUser\\testdata\\testdata 1.xlsx");
-		FileInputStream fin=new FileInputStream(src);
-		wb=new XSSFWorkbook(fin);	
-	}
-	public String data(int sheetnum,int rownum,int columnnum) throws Exception
-	{
-	
-	XSSFSheet sheet=wb.getSheetAt(sheetnum);
-	String data=sheet.getRow(rownum).getCell(columnnum).getStringCellValue();
-	return data;
 
-}
+		File src = new File("C:\\Users\\HP\\eclipse\\practice programs\\orangeHrmAddUser\\testdata\\testdata 1.xlsx");
+		FileInputStream fin = new FileInputStream(src);
+		XSSFWorkbook wb = new XSSFWorkbook(fin);
+		XSSFSheet sheet = wb.getSheetAt(sheetnum);
+		String data = sheet.getRow(rownum).getCell(columnnum).getStringCellValue();
+		wb.close();
+		return data;
+		
+
+	}
 }
